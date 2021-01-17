@@ -18,24 +18,24 @@ d = np.array(
         )
 
 # ancienne fonction 1
-r = d.shape[0]
-q = np.zeros((r,r))
-for i in xrange(r):
-    for j in xrange(r):
+n = d.shape[0]
+q = np.zeros((n,n))
+for i in xrange(n):
+    for j in xrange(n):
         if i == j:
             q[i][j] = 0
         else:
             sumI = 0
             sumJ = 0
-            for k in xrange(r):
+            for k in xrange(n):
                sumI += d[i][k]
                sumJ += d[j][k]
-            q[i][j] = (r-2) * d[i][j] - sumI - sumJ
+            q[i][j] = (n-2) * d[i][j] - sumI - sumJ
 # anicenne fonction 2 
 
 minVal = maxint
-for i in xrange(0,r):
-    for j in xrange(i,r):
+for i in xrange(0,n):
+    for j in xrange(i,n):
         if (q[i][j] < minVal):
             minVal = q[i][j]
             minIndex = (i,j)
@@ -46,22 +46,22 @@ j = minIndex[1]
 
 sumI = 0
 sumJ = 0
-for k in xrange(r):
+for k in xrange(n):
     sumI += d[i][k]
     sumJ += d[j][k]
 
-dfu = (1. / (2. * (r - 2.))) * ((r - 2.) * d[i][j] + sumI - sumJ)
-dgu = (1. / (2. * (r - 2.))) * ((r - 2.) * d[i][j] - sumI + sumJ)
+dfu = (1. / (2. * (n - 2.))) * ((n - 2.) * d[i][j] + sumI - sumJ)
+dgu = (1. / (2. * (n - 2.))) * ((n - 2.) * d[i][j] - sumI + sumJ)
 
 #ancienne fonction 4
-nd = np.zeros((r-1,r-1))
+nd = np.zeros((n-1,n-1))
 
 # Copy over the old data to this matrix
 ii = jj = 1
-for i in xrange(0,r):
+for i in xrange(0,n):
      if i == f or i == g:
         continue
-     for j in xrange(0,r):
+     for j in xrange(0,n):
         if j == f or j == g:
            continue
         nd[ii][jj] = d[i][j]
@@ -71,7 +71,7 @@ for i in xrange(0,r):
             
 # Calculate the first row and column
 ii = 1
-for i in range (0,r):
+for i in range (0,n):
     if i == f or i == g:
         continue
     nd[0][ii] = (d[f][i] + d[g][i] - d[f][g]) / 2.
