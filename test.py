@@ -53,7 +53,7 @@ for k in xrange(r):
 dfu = (1. / (2. * (r - 2.))) * ((r - 2.) * d[i][j] + sumI - sumJ)
 dgu = (1. / (2. * (r - 2.))) * ((r - 2.) * d[i][j] - sumI + sumJ)
 
-#ancienne foction 4
+#ancienne fonction 4
 nd = np.zeros((r-1,r-1))
 
 # Copy over the old data to this matrix
