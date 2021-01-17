@@ -1,19 +1,14 @@
 import sys
 import numpy as np
-import scipy as scipy
-import itertools
 from sys import maxint
 
 d = np.array(
         [
-            [  0,  30,  68,  57, 127,  27,  28,  33],
-            [ 30,   0,  58,  47, 117,  11,  52,  57],
-            [ 68,  58,   0,  35,  69,  55,  87,  92],
-            [ 57,  47,  35,   0,  94,  44,  79,  84],
-            [127, 117,  69,  94,   0, 114, 149, 154],
-            [ 27,  11,  55,  44, 114,   0,  49,  54],
-            [ 28,  52,  87,  79, 149,  49,   0,  13],
-            [ 33,  57,  92,  84, 154,  54,  13,   0],
+          [0, 34, 60, 47, 45],
+          [34, 0, 56, 49, 47], 
+          [60, 56, 0, 50, 48],
+          [47, 49, 50, 0, 22],
+          [45, 47, 48, 22, 0],
          ]
         )
 
@@ -31,8 +26,8 @@ for i in xrange(n):
                sumI += d[i][k]
                sumJ += d[j][k]
             q[i][j] = (n-2) * d[i][j] - sumI - sumJ
-# anicenne fonction 2 
 
+# anicenne fonction 2 
 minVal = maxint
 for i in xrange(0,n):
     for j in xrange(i,n):
