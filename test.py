@@ -48,6 +48,8 @@ dgu = (1. / (2. * (n - 2.))) * ((n - 2.) * d[i][j] - sumI + sumJ)
 nd = np.zeros((n-1,n-1))
 
 ii = jj = 1
+f = minIndex[0]
+g = minIndex[1]
 for i in xrange(0,n):
      if i == f or i == g:
         continue
